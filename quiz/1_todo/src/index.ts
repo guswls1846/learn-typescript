@@ -12,7 +12,7 @@ function fetchTodoItems(): Todo[] {
 }
 
 // crud methods
-function fetchTodos(): object[] {
+function fetchTodos(): Todo[] {
   const todos = fetchTodoItems();
   return todos;
 }
@@ -40,6 +40,10 @@ function showCompleted(): Todo[] {
 }
 
 function addTwoTodoItems() {
+  const item1 = { id: 4, title: "item4", done: false };
+  addTodo(item1);
+  const item2 = { id: 5, title: "item5", done: false };
+  addTodo(item2);
   // addTodo() 함수를 두 번 호출하여 todoItems에 새 할 일이 2개 추가되어야 합니다.
 }
 

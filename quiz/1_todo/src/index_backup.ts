@@ -51,3 +51,4 @@ function log() {
 todoItems = fetchTodoItems();
 addTwoTodoItems();
 log();
+export {};
