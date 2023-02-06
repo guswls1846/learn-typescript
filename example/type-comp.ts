@@ -14,12 +14,12 @@ var b: Person;
 b = a; // O
 
 // 함수
-var add = function(a: number) {
+var add = function (a: number) {
   // ...
-}
-var sum = function(a: number, b: number) {
+};
+var sum = function (a: number, b: number) {
   // ...
-}
+};
 // sum = add; // X
 // add = sum; // O
 
@@ -28,3 +28,4 @@ var sum = function(a: number, b: number) {
 // var d: Person | string;
 // c = d;
 // d = c;
+export {};

@@ -30,3 +30,4 @@ function printText(text: string, type?: string) {
 printText("hi");
 
 // 타입스크립트 함수 선언 - 함수의 반환 타입
+export {};

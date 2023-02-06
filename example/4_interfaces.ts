@@ -5,7 +5,7 @@ interface User {
 }
 
 // 변수에 사용하는 경우
-const seho: User = { name: 'hi', age: 100 };
+const seho: User = { name: "hi", age: 100 };
 
 // 함수의 매개변수에 사용하는 경우
 function getUser(user: User) {
@@ -18,7 +18,7 @@ getUser(seho);
 //   (a: number, b: number): number;
 // }
 // let sum: SumFunction;
-// sum = function (num1: number, num2: string): number {
+// sum = function (num1: number, num2: number): number {
 //   return num1 + num2;
 // };
 
@@ -30,6 +30,36 @@ getUser(seho);
 // arr[0] = 'hi';
 // arr[1] = 10;
 
+// 딕셔너리 패턴
+// interface StringRegexDictionary {
+//   [key: string]: RegExp;
+// }
+//
+// var obj: StringRegexDictionary = {
+//   cssFile: /\.css$/,
+//   jsFile: /\.js$/,
+// };
+//
+// const test = new RegExp(`\.css$`);
+// obj["cssFile"] = test;
+// obj["cssFile"] = "a";
+
+// Object.keys(obj).forEach((value) => console.log(value));
+
+// 클래스 타입
+interface CraftBeer {
+  beerName: string;
+  nameBeer(beer: string): void;
+}
+
+class myBeer implements CraftBeer {
+  beerName: string = "Baby Guinness";
+  nameBeer(b: string) {
+    this.beerName = b;
+  }
+  constructor() {}
+}
+
 // 인터페이스 확장
 interface Person {
   name: string;
@@ -38,4 +68,7 @@ interface Person {
 interface Developer extends Person {
   language: string;
 }
-const joo: Developer = { name: 'joo', age: 20, language: 'ts' };
+
+const joo: Developer = { name: "joo", age: 20, language: "ts" };
+
+export {};

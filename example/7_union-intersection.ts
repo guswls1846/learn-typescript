@@ -14,13 +14,13 @@ function logMessage(value: string | number) {
 }
 
 function logMessage(value: string | number) {
-  if (typeof value === 'string') {
+  if (typeof value === "string") {
     value.toLocaleUpperCase();
   }
-  if (typeof value === 'number') {
+  if (typeof value === "number") {
     value.toLocaleString();
   }
-  throw new TypeError('value must be string or number')
+  throw new TypeError("value must be string or number");
 }
 
 // # Intersection 타입 문법
@@ -38,3 +38,4 @@ function askSomeone(someone: Developer | Person) {
   someone.name; // O
   someone.age; // X
 }
+export {};

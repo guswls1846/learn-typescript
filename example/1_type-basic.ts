@@ -31,3 +31,4 @@ person.age = 101;
 
 // 진위값
 let isLogin: boolean = false;
+export {};
