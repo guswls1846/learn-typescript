@@ -36,6 +36,13 @@ interface Person {
 
 function askSomeone(someone: Developer | Person) {
   someone.name; // O
-  someone.age; // X
+
+  if ("skill" in someone) {
+    someone.skill;
+  }
+
+  if ("age" in someone) {
+    someone.age;
+  }
 }
 export {};

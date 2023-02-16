@@ -4,7 +4,16 @@ enum Avengers {
   Ironman,
   Hulk,
 }
+
+enum Direction {
+  Up = "UP",
+  Down = "DOWN",
+  Left = "LEFT",
+  Right = "RIGHT",
+}
+
 const myHero = Avengers.Capt;
+// const direction = Direction.Down;
 
 // any
 let a: any = "hi";

@@ -52,4 +52,14 @@ getAllowedOptions("nothing");
 // const a = getAllowedOptions('name');
 // a.toUpperCase(); // Name
 
+enum LogLevel {
+  ERROR,
+  WARN,
+  INFO,
+  DEBUG,
+}
+
+// 'ERROR' | 'WARN' | 'INFO' | 'DEBUG';
+type LogLevelStrings = keyof LogLevel;
+
 export {};
