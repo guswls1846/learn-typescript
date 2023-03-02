@@ -7,10 +7,10 @@ function getUnixTimestamp(date: Date) {
 }
 
 // DOM
-const confirmedTotal = $(".confirmed-total");
-const deathsTotal = $(".deaths");
-const recoveredTotal = $(".recovered");
-const lastUpdatedTime = $(".last-updated-time");
+const confirmedTotal = $(".confirmed-total") as HTMLSpanElement;
+const deathsTotal = $(".deaths") as HTMLParagraphElement;
+const recoveredTotal = $(".recovered") as HTMLParagraphElement;
+const lastUpdatedTime = $(".last-updated-time") as HTMLParagraphElement;
 const rankList = $(".rank-list");
 const deathsList = $(".deaths-list");
 const recoveredList = $(".recovered-list");
@@ -175,7 +175,7 @@ async function setupData() {
 }
 
 function renderChart(data: any, labels: any) {
-  var ctx = $("#lineChart").getContext("2d");
+  var ctx = ($("#lineChart") as HTMLCanvasElement).getContext("2d");
   Chart.defaults.color = "#f5eaea";
   Chart.defaults.font.family = "Exo 2";
   new Chart(ctx, {
