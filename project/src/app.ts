@@ -41,9 +41,14 @@ function fetchCovidSummary() {
   const url = "https://api.covid19api.com/summary";
   return axios.get(url);
 }
+enum CovidStatus {
+  Confirmed = "confirmed",
+  Recovered = "recovered",
+  Deaths = "deaths",
+}
 
-function fetchCountryInfo(countryCode: any, status: any) {
-  // params: confirmed, recovered, deaths
+function fetchCountryInfo(countryCode: string, status: CovidStatus) {
+  // status: confirmed, recovered, deaths
   const url = `https://api.covid19api.com/country/${countryCode}/status/${status}`;
   return axios.get(url);
 }
