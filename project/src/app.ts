@@ -1,3 +1,5 @@
+import axios from "axios";
+import { Chart } from "chart.js";
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
@@ -34,7 +36,7 @@ function createSpinnerElement(id: string) {
 
 // state
 let isDeathLoading = false;
-let isRecoveredLoading = false;
+const isRecoveredLoading = false;
 
 // api
 function fetchCovidSummary() {
@@ -175,7 +177,7 @@ async function setupData() {
 }
 
 function renderChart(data: any, labels: any) {
-  var ctx = ($("#lineChart") as HTMLCanvasElement).getContext("2d");
+  const ctx = ($("#lineChart") as HTMLCanvasElement).getContext("2d");
   Chart.defaults.color = "#f5eaea";
   Chart.defaults.font.family = "Exo 2";
   new Chart(ctx, {
