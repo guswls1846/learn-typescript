@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { Chart } from "chart.js";
-import { CovidSummary, CovidSummaryResponse } from "./type";
+import { CovidSummaryResponse } from "./type";
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
@@ -44,7 +44,7 @@ async function fetchCovidSummary(): Promise<
   AxiosResponse<CovidSummaryResponse>
 > {
   const url = "https://api.covid19api.com/summary";
-  return await axios.get(url);
+  return await axios.get(url, { timeout: 50000 });
 }
 enum CovidStatus {
   Confirmed = "confirmed",
