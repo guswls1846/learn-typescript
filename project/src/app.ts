@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { Chart } from "chart.js";
-import { CovidSummaryResponse } from "./type";
+import { CountrySummaryResponse, CovidSummaryResponse } from "./type";
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
@@ -52,10 +52,13 @@ enum CovidStatus {
   Deaths = "deaths",
 }
 
-function fetchCountryInfo(countryCode: string, status: CovidStatus) {
+async function fetchCountryInfo(
+  countryCode: string,
+  status: CovidStatus
+): Promise<AxiosResponse<CountrySummaryResponse>> {
   // status: confirmed, recovered, deaths
   const url = `https://api.covid19api.com/country/${countryCode}/status/${status}`;
-  return axios.get(url);
+  return await axios.get(url);
 }
 
 // methods
