@@ -1,5 +1,6 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { Chart } from "chart.js";
+import { CovidSummary, CovidSummaryResponse } from "./type";
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
@@ -39,9 +40,11 @@ let isDeathLoading = false;
 const isRecoveredLoading = false;
 
 // api
-function fetchCovidSummary() {
+async function fetchCovidSummary(): Promise<
+  AxiosResponse<CovidSummaryResponse>
+> {
   const url = "https://api.covid19api.com/summary";
-  return axios.get(url);
+  return await axios.get(url);
 }
 enum CovidStatus {
   Confirmed = "confirmed",
