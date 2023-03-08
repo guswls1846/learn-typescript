@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { Chart } from "chart.js";
-import { CountrySummaryResponse, CovidSummaryResponse } from "./type";
+import { Country, CountrySummaryResponse, CovidSummaryResponse } from "./type";
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
@@ -213,11 +213,11 @@ function setChartData(data: any) {
   renderChart(chartData, chartLabel);
 }
 
-function setTotalConfirmedNumber(data: any) {
+function setTotalConfirmedNumber(data: CovidSummaryResponse) {
   confirmedTotal.innerText = data.Countries.reduce(
-    (total: any, current: any) => (total += current.TotalConfirmed),
+    (total: number, current: Country) => (total += current.TotalConfirmed),
     0
-  );
+  ).toString();
 }
 
 function setTotalDeathsByWorld(data: any) {
