@@ -30,7 +30,7 @@ export interface Global {
   Date: Date;
 }
 
-interface CountrySummaryInfo {
+export interface CountrySummaryInfo {
   Cases: number;
   City: string;
   CityCode: string;

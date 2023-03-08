@@ -1,6 +1,11 @@
 import axios, { AxiosResponse } from "axios";
 import { Chart } from "chart.js";
-import { Country, CountrySummaryResponse, CovidSummaryResponse } from "./type";
+import {
+  Country,
+  CountrySummaryInfo,
+  CountrySummaryResponse,
+  CovidSummaryResponse,
+} from "./type";
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
@@ -53,11 +58,11 @@ enum CovidStatus {
 }
 
 async function fetchCountryInfo(
-  countryCode: string,
+  countryName: string,
   status: CovidStatus
 ): Promise<AxiosResponse<CountrySummaryResponse>> {
   // status: confirmed, recovered, deaths
-  const url = `https://api.covid19api.com/country/${countryCode}/status/${status}`;
+  const url = `https://api.covid19api.com/country/${countryName}/status/${status}`;
   return await axios.get(url);
 }
 
@@ -72,7 +77,7 @@ function initEvents() {
   rankList.addEventListener("click", handleListClick);
 }
 
-async function handleListClick(event: any) {
+async function handleListClick(event: MouseEvent) {
   let selectedId;
   if (
     event.target instanceof HTMLParagraphElement ||
@@ -111,9 +116,10 @@ async function handleListClick(event: any) {
   isDeathLoading = false;
 }
 
-function setDeathsList(data: any) {
+function setDeathsList(data: CountrySummaryResponse) {
   const sorted = data.sort(
-    (a: any, b: any) => getUnixTimestamp(b.Date) - getUnixTimestamp(a.Date)
+    (a: CountrySummaryInfo, b: CountrySummaryInfo) =>
+      getUnixTimestamp(b.Date) - getUnixTimestamp(a.Date)
   );
   sorted.forEach((value: any) => {
     const li = document.createElement("li");
